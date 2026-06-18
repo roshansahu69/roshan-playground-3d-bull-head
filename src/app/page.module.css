@@ -1,4 +1,32 @@
 .page {
   width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: #a63a08;
+}
+
+.canvasContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   height: 100vh;
+  z-index: 2;
+  pointer-events: none !important;
+}
+
+.canvasContainer * {
+  pointer-events: none !important;
+}
+
+.canvasContainer.interactive,
+.canvasContainer.interactive * {
+  pointer-events: auto !important;
+}
+
+.scrollContainer {
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+  width: 100%;
 }

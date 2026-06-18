@@ -1,0 +1,19 @@
+.info2Section {
+    padding: 0 var(--global-x-padding);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+
+    .infoContent {
+        width: 60%;
+
+        border-bottom: 1px solid var(--foreground);
+        padding-bottom: 30px;
+
+        .description {
+            width: 90%;
+        }
+    }
+}

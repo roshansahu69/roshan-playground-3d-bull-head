@@ -1,0 +1,43 @@
+.heroSection {
+    padding: 0 var(--global-x-padding);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .heroContent {
+        .subHeading {
+            font-size: 28px;
+            padding: 6px 10px;
+            border: 1px solid var(--foreground);
+            width: fit-content;
+        }
+
+        .description {
+            width: 700px;
+            margin-top: 280px;
+        }
+    }
+
+    .scrollInfo {
+        position: absolute;
+        bottom: 20;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+
+        .scrollIndicator {
+            height: 40vh;
+            width: 1px;
+            background-color: var(--foreground);
+
+        }
+
+        .scrollText {
+            font-size: 12px;
+        }
+    }
+}

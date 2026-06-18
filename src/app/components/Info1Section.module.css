@@ -1,0 +1,15 @@
+.info1Section {
+    padding: 0 var(--global-x-padding);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+
+    .infoContent {
+        width: 50%;
+
+        border-bottom: 1px solid var(--foreground);
+        padding-bottom: 30px;
+    }
+}

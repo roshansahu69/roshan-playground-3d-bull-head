@@ -1,0 +1,15 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 24px var(--global-x-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 20;
+
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+}

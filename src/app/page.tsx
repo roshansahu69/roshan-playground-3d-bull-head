@@ -1,29 +1,50 @@
 'use client'
-import { Environment, OrbitControls, useGLTF } from "@react-three/drei";
-import * as THREE from 'three'
 import { Canvas } from "@react-three/fiber";
 import styles from "./page.module.css";
-import { useEffect } from "react";
+import Hero from "./components/Hero";
+import DeatilsSection from "./components/DeatilsSection";
+import Info2Section from "./components/Info2Section";
+import Info1Section from "./components/Info1Section";
+import { Navbar } from "./components/Navbar";
+import { Experience } from "./components/Experience";
+
+import { useState, useEffect } from "react";
+import { Footer } from "./components/Footer";
+import Loader from "./components/Loader";
 
 export default function Home() {
+  const [isInteractive, setIsInteractive] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const progress = window.scrollY / window.innerHeight;
+      setIsInteractive(progress >= 2.5);
+    };
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className={styles.page}>
-      <Canvas>
-        <color attach="background" args={['#a63a08']} />
-        <Environment preset="sunset" environmentIntensity={1} />
-        <ambientLight />
-        {/* <directionalLight position={[10, 10, 5]} intensity={0.5} /> */}
+      <Loader />
+      {/* Background 3D Canvas */}
+      <div className={`${styles.canvasContainer} ${isInteractive ? styles.interactive : ""}`}>
+        <Canvas shadows camera={{ position: [0, 0, 8], fov: 50 }}>
+          <Experience isInteractive={isInteractive} />
+        </Canvas>
+      </div>
 
-        <BullHead />
-        <OrbitControls />
-      </Canvas>
+      {/* Scrolling HTML Content */}
+      <div className={styles.scrollContainer}>
+        <Navbar />
+        <Hero />
+        <Info1Section />
+        <Info2Section />
+        <DeatilsSection />
+      </div>
+
+      <Footer />
     </div>
   );
-}
-
-function BullHead() {
-  // const { scene } = useGLTF('/bull_head/bull_head_1k.gltf');
-  const { scene } = useGLTF('/bull_head_2k.gltf/bull_head_2k.gltf');
-  return <primitive object={scene} scale={13} />
-
 }

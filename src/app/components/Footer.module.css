@@ -1,0 +1,26 @@
+.footer {
+    position: relative;
+    padding: 10px var(--global-x-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(27, 27, 27);
+    font-size: 12px;
+    z-index: 3;
+
+    .footerLeft,
+    .footerRight {
+        display: flex;
+        flex-direction: column;
+
+        a {
+            text-decoration: underline;
+        }
+    }
+
+    .footerLeft {}
+
+    .footerRight {
+        align-items: flex-end;
+    }
+}

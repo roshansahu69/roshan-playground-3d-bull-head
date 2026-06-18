@@ -1,0 +1,51 @@
+.detailsSection {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .exploreText {
+        position: absolute;
+        top: 50%;
+        left: var(--global-x-padding);
+        transform: translateY(-50%);
+    }
+
+    .bullText {
+        position: absolute;
+        top: 50%;
+        right: var(--global-x-padding);
+        transform: translateY(-50%);
+    }
+
+    .dragText {
+        position: absolute;
+        bottom: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.outerCircle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 1000px;
+    border-radius: 50%;
+    border: 2px solid var(--foreground);
+}
+
+.innerCircle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}

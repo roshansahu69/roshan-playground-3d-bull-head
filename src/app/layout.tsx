@@ -1,16 +1,17 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { DM_Sans, Geist, Geist_Mono, Grenze_Gotisch } from "next/font/google";
 import "./globals.css";
+import LenisProvider from "./components/LenisProvider";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const geistSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const grenze = Grenze_Gotisch({
+  variable: "--font-grenze",
   subsets: ["latin"],
-});
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,8 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <body>{children}</body>
+    <html lang="en" className={`${geistSans.variable} ${grenze.variable}`}>
+      <body>
+        <LenisProvider>{children}</LenisProvider>
+      </body>
     </html>
   );
 }
