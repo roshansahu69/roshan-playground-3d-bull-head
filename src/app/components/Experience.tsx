@@ -74,6 +74,17 @@ function BullHead({ isInteractive }: { isInteractive: boolean }) {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const isMobileRef = useRef(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            isMobileRef.current = window.innerWidth <= 768;
+        };
+        window.addEventListener('resize', handleResize);
+        handleResize();
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
     useFrame((state) => {
         if (!groupRef.current) return;
 
@@ -87,12 +98,21 @@ function BullHead({ isInteractive }: { isInteractive: boolean }) {
 
         // Define target parameters for each segment
         // 0: Hero, 1: Info1, 2: Info2, 3: Details
-        const keyframes = [
+        const desktopKeyframes = [
             { x: 0, y: -2.2, scale: 9 },    // Hero
-            { x: -3.5, y: -3, scale: 13 }, // Info1
-            { x: 3.5, y: -3, scale: 13 },  // Info2
+            { x: -3.5, y: -3, scale: 15 }, // Info1
+            { x: 3.5, y: -3, scale: 12 },  // Info2
             { x: 0, y: -2, scale: 10 }     // Details
         ];
+
+        const mobileKeyframes = [
+            { x: 0, y: -1.5, scale: 7 },    // Hero
+            { x: -1.5, y: -2, scale: 10 }, // Info1
+            { x: 1.5, y: -2, scale: 9 },  // Info2
+            { x: 0, y: -1.5, scale: 9 }     // Details
+        ];
+
+        const keyframes = isMobileRef.current ? mobileKeyframes : desktopKeyframes;
 
         const targetX = THREE.MathUtils.lerp(keyframes[lowerIndex].x, keyframes[upperIndex].x, t);
         const targetY = THREE.MathUtils.lerp(keyframes[lowerIndex].y, keyframes[upperIndex].y, t);

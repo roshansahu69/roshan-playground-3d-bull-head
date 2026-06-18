@@ -39,7 +39,7 @@ const DeatilsSection = () => {
             <div className={styles.innerCircle} ref={innerCircleRef}></div>
             <h1 className={styles.exploreText}>Explore</h1>
             <h1 className={styles.bullText}>The Bull</h1>
-            <span className={styles.dragText}>(Drag the bull for 3D view)</span>
+            <span className={styles.dragText}>(Drag the bull for 360° view)</span>
         </section>
     )
 }

@@ -55,8 +55,7 @@
   font-family: var(--font-dm-sans), sans-serif;
   font-size: 14px;
   font-weight: 500;
-  color: #ffa578;
-  letter-spacing: 0.1em;
+  color: var(--background);
 }
 
 @media (max-width: 768px) {

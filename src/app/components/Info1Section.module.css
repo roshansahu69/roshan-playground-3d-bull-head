@@ -12,4 +12,16 @@
         border-bottom: 1px solid var(--foreground);
         padding-bottom: 30px;
     }
+
+    @media (max-width: 768px) {
+        .infoContent {
+            width: 55%;
+            padding-bottom: 12px;
+
+            .description {
+                margin-top: 12px;
+            }
+
+        }
+    }
 }
