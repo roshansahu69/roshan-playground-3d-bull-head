@@ -53,6 +53,8 @@ h6 {
   font-size: 128px;
   font-weight: 400;
   letter-spacing: -0.04em;
+  line-height: 0.8;
+  margin-bottom: 28px;
 }
 
 @media (max-width:768px) {
